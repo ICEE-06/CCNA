@@ -20,19 +20,35 @@
 
 
 Il y a **7 couches** dans le modèles **OSI** dont:
-1. **Physique**: touts ce qui est physiques (câbles, PC, fibre optique). Les données sont appelées **bit**.
+![[7couches.png]]
 
-2. **Liaison de données**: liaison entre switch et switch par exemple. On peut aussi tester ici si il y  a des erreurs physiques dans le réseau (utilisation des adresses physique c-a-d **MAC**). Utilise le protocole **ARP**(traduction d'un adresse IP en adresse MAC).
+-  **couche 7: Application**: 
+	c'est la couche la plus haute donc la plus **proche** de l'utilisateurs finaux. C’est donc elle qui va apporter à l’utilisateur les services de base offerts par le réseau, comme par exemple le transfert de fichier, la messagerie…
 
-3. **Réseau**: Assure la connectivité entre les hôtes dans différents réseaux. Utilise le protocole **IP** donc il assure l'**adressage IP** et l'**adressage logique**. Les données ici sont appelées **des paquets**. 
+- **couche 6: Présentation**: 
+	**encryptions** des données quand on l'envoie et **décryptions** si on le reçoit. Cette couche s’intéresse à la syntaxe et à la sémantique des données transmises : c’est elle qui traite l’information de manière à la rendre compatible entre tâches communicantes.
+	Typiquement, cette couche peut convertir les données, les reformater, les crypter et les compresser.
 
-4. **Transport**: c'est ici que commence l'**encapsulation**. Elle **segmente** les données(les données dans la couche 4 sont appelées **segment**).
+ - **couche 5: Session**: 
+	 Cette couche organise et synchronise les échanges entre tâches distantes c'est à dire contrôle la session entre les machines. Elle établit également une liaison entre deux programmes d’application devant coopérer et commande leur dialogue.
 
-5. **Session**: contrôle la session entre les machines
+-  **couche 4: Transport**: 
+	c'est ici que commence l'**encapsulation**. Cette couche est responsable du bon acheminement des messages complets au destinataire.
+	Le rôle principal de la couche transport est de prendre les messages de la couche session, de les découper s’il le faut en unités plus petites et de les passer à la couche réseau, tout en s’assurant que les morceaux arrivent correctement de l’autre côté.
+	Ici les données sont appelées des **segments**
 
-6. **Présentation**: **encryptions** des données quand on l'envoie et **décryptions** si on le reçoit. 
+- **couche 3: Réseau**: 
+	C’est la couche qui permet de gérer le sous-réseau, le routage des paquets sur ce sous-réseau et l’interconnexion des différents sous-réseaux entre eux.
+	Ici les données sont appelées des **paquets**.
 
-7. **Application**: c'est la couche la plus haute donc la plus **proche** de l'utilisateurs finaux .
+- **couche 2: Liaison de données**: 
+	Son rôle est un rôle de « **liant** » : elle va transformer la couche physique en une liaison a priori exempte d’erreurs de transmission pour la couche réseau. Elle fractionne les données d’entrée de l’émetteur en **trames**, transmet ces trames en séquence et gère les trames d’acquittement renvoyées par le récepteur.
+	La couche liaison de données doit être capable de renvoyer une trame lorsqu’il y a eu un problème sur la ligne de transmission. De manière générale, un rôle important de cette couche est la **détection et la correction d’erreurs** intervenues sur la couche physique.
+	Ici les données sont appelées des **trames**
+
+- **couche 1: Physique**: 
+	La couche physique s’occupe de la transmission des bits de façon brute sur un canal de communication. Cette couche doit garantir la parfaite transmission des données (un bit 1 envoyé doit bien être reçu comme bit valant 1). 
+	Ici les données sont appelées des **bits**.
 
 ![[WhatsApp Image 2025-06-18 at 09.43.05.jpeg]]
 
